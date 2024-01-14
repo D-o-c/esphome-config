@@ -1,0 +1,25 @@
+substitutions:
+  buzzer_pin: GPIO9
+  i2s_bclk_pin: GPIO7
+  i2s_din_pin: "${buzzer_pin}"
+  i2s_lrclk_pin: GPIO12
+  led_invert: "true"
+  led_pin: GPIO15
+  pir_pin: GPIO11
+  sen0395_io_pin: GPIO5
+  uart_rx_pin: GPIO37
+  uart_tx_pin: GPIO39
+
+esp32:
+  board: esp32-s2-saola-1
+  variant: ESP32S2
+  framework:
+    type: arduino
+
+i2c:
+  sda: GPIO33
+  scl: GPIO35
+
+sensor:
+  - platform: internal_temperature
+    name: "CPU Temperature"

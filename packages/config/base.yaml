@@ -1,0 +1,40 @@
+substitutions:
+  version: "3.0.0"
+
+esphome:
+  name: "${name}"
+  friendly_name: "${friendly_name}"
+
+  project:
+    name: "Schluggi.AIOsense"
+    version: "${version}"
+
+logger:
+  baud_rate: 0  # disable logging via UART
+
+captive_portal:
+
+i2c:
+  scan: true
+
+wifi:
+  # Fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "${name}"
+
+button:
+  - platform: restart
+    name: "Restart"
+    entity_category: diagnostic
+
+  - platform: safe_mode
+    name: "Restart (Safe Mode)"
+    entity_category: diagnostic
+
+binary_sensor:
+  - platform: status
+    name: "Status"
+
+sensor:
+  - platform: wifi_signal
+    name: "Wifi Signal"
