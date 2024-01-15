@@ -1,0 +1,12 @@
+---
+substitutions:
+  system_name: bedroom_allinone_sensor
+  host_name: bedroom_allinone_sensor.piscio.net
+  friendly_name: Bedroom - All In One sensor
+  device_description: All in one sensor - AIOSense
+  #log_baudrate: "1"
+  #log_level: DEBUG
+
+
+packages:
+  device: !include devices/aiosense.yaml

@@ -1,0 +1,16 @@
+substitutions:
+  pir_delayed_off: 1s
+  pir_delayed_on: 0s
+  pir_pin_mode: "INPUT_PULLDOWN"
+
+binary_sensor:
+  - platform: gpio
+    name: "PIR"
+    id: motion_pir
+    pin:
+      number: "${pir_pin}"
+      mode: "${pir_pin_mode}"
+    device_class: motion
+    filters:
+      - delayed_on: "${pir_delayed_on}"
+      - delayed_off: "${pir_delayed_off}"

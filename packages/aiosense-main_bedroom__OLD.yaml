@@ -48,7 +48,7 @@ packages:
       - esphome/packages/sensors/pir.yaml
 
       # ----- voice assistant (use rgb_led for esp32-c3 & esp32-s3 only-----
-      - esphome/packages/sensors/voice_assistant-rgb_led.yaml
+      #- esphome/packages/sensors/voice_assistant-rgb_led.yaml
       # - esphome/packages/sensors/voice_assistant-led.yaml
 
       # ----- led modules (use rgb_led for esp32-c3 & esp32-s3 only) -----
@@ -63,10 +63,10 @@ packages:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "<secret>"
+    key: "W0kQHnwYLJKSN2lHRoFkZDDfrzHBkba+0uQ01Xgn3oY="
 
 ota:
-  password: "<secret>"
+  password: "pippo"
 
 wifi:
   ssid: !secret wifi_ssid
