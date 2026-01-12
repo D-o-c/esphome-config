@@ -1,0 +1,13 @@
+---
+substitutions:
+  system_name: kitchen-allinone-sensor
+  host_name: kitchen-allinone-sensor.piscio.net
+  friendly_name: Kitchen - AIO
+  device_description: All in one sensor - AIOSense - Kitchen
+  uart_rx_pin: GPIO21
+  uart_tx_pin: GPIO20
+
+
+packages:
+  # <<: !include_dir_named components/debug 
+  device: !include devices/aiosense_ld2410.yaml

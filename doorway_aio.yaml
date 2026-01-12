@@ -1,0 +1,11 @@
+---
+substitutions:
+  system_name: doorway-allinone-sensor
+  host_name: doorway-allinone-sensor.piscio.net
+  friendly_name: Doorway - AIO
+  device_description: All in one sensor - AIOSense - Doorway
+
+
+packages:
+  #<<: !include_dir_named components/debug 
+  device: !include devices/aiosense.yaml

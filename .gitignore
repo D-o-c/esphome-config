@@ -10,3 +10,4 @@ lost+found
 **/platformio.ini
 /secrets.yaml
 /trash/
+/.code-server/

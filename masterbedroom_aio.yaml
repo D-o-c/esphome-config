@@ -1,0 +1,11 @@
+---
+substitutions:
+  system_name: master-bedroom-allinone-sensor
+  host_name: master-bedroom-allinone-sensor.piscio.net
+  friendly_name: Master Bedroom - AIO
+  device_description: All in one sensor - AIOSense - Master bedroom
+
+
+packages:
+  #<<: !include_dir_named components/debug 
+  device: !include devices/aiosense.yaml

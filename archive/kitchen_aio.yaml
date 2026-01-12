@@ -1,0 +1,11 @@
+---
+substitutions:
+  system_name: kitchen_allinone_sensor
+  host_name: kitchen_allinone_sensor.piscio.net
+  friendly_name: Kitchen - All In One sensor
+  device_description: All in one sensor - AIOSense
+
+
+packages:
+  device: !include devices/aiosense.yaml
+  <<: !include_dir_named ../components/debug

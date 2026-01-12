@@ -3,12 +3,13 @@
 # https://esphome.io/components/ota.html
 #
 
-# substitutions:
-#   ota_password: !secret ota_password
+substitutions:
+  ota_password: !secret ota_password
 
 ota:
+  platform: esphome
   id: component_ota
-  # password: "${ota_password}"
-  safe_mode: true
-  reboot_timeout: 10min
-  num_attempts: 5
+  password: "${ota_password}"
+  #safe_mode: true
+  #reboot_timeout: 10min
+  #num_attempts: 5

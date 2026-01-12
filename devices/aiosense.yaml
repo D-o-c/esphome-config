@@ -13,12 +13,29 @@ substitutions:
   sen0395_io_pin: A2
   uart_rx_pin: GPIO20
   uart_tx_pin: GPIO21
+  bme_address: "0x77"  # for some modules you have to change it to 0x77
+  temperature_offset: "-6"
+  version: "3.0.0"
+
+esphome:
+  project:
+    name: "Schluggi.AIOsense"
+    version: "${version}"
+
+captive_portal:
+
+i2c:
+  scan: true
+
+binary_sensor:
+  - platform: status
+    name: "Status"
 
 packages:
   <<: !include_dir_named ../components/common
   wifi: !include ../components/hardware/wifi.yaml
   board: !include ../boards/c3_mini.yaml
-  mosquitto: !include ../components/integrations/mqtt.yaml
+  #mosquitto: !include ../components/integrations/mqtt.yaml
 
   ## Sensors
   bh1750: !include ../components/sensors/bh1750.yaml

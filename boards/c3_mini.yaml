@@ -6,6 +6,8 @@
   esphome:
     <<: !include .esphome.yaml
     platformio_options:
+      # Force official PlatformIO ESP32 platform (avoid PIOArduino)
+      platform: platformio/espressif32@6.12.0
       board_build.extra_flags:
         - "-DARDUINO_USB_CDC_ON_BOOT=0"
       board_build.flash_mode: dio
@@ -13,6 +15,8 @@
   esp32:
     board: lolin_c3_mini
     variant: ESP32C3
+    framework:
+      type: esp-idf
 
   wifi:
     output_power: 8.5dBm
@@ -25,3 +29,8 @@
   sensor:
     - platform: internal_temperature
       name: "CPU Temperature"
+
+  button:
+    - platform: safe_mode
+      name: "Restart (Safe Mode)"
+      entity_category: diagnostic

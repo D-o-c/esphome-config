@@ -1,14 +1,14 @@
-# https://esphome.io/components/light/neopixelbus.html
+# https://esphome.io/components/light/esp32_rmt_led_strip/
 substitutions:
   led_strobe_on: 50ms
   led_strobe_off: 100ms
 
 light:
-  - platform: neopixelbus
+  - platform: esp32_rmt_led_strip
     name: "LED"
     id: led
-    type: "${rgb_led_type}"
-    variant: WS2812X
+    chipset: WS2812
+    rgb_order: "${rgb_led_type}"
     num_leds: 1
     pin: "${rgb_led_pin}"
     icon: "mdi:led-outline"
