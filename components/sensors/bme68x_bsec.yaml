@@ -6,6 +6,8 @@ substitutions:
   pressure_offset: "0"
   temperature_offset: "0"
   voc_offset: "0"
+  # Average BSEC readings (sampled every 3s) before publishing, to limit HA recorder churn.
+  bme_report_interval: 60s
 
 external_components:
   - source: github://schluggi/esphome@dev
@@ -27,17 +29,20 @@ sensor:
       filters:
         - offset: ${temperature_offset}
         - lambda: "return x + id(temperature_offset_ui).state;"
+        - throttle_average: ${bme_report_interval}
     pressure:
       name: "Pressure"
       device_class: atmospheric_pressure
       filters:
         - offset: ${pressure_offset}
         - lambda: "return x + id(pressure_offset_ui).state;"
+        - throttle_average: ${bme_report_interval}
     humidity:
       name: "Humidity"
       filters:
         - offset: ${humidity_offset}
         - lambda: "return x + id(humidity_offset_ui).state;"
+        - throttle_average: ${bme_report_interval}
     iaq:
       name: "IAQ"
       id: iaq
@@ -45,18 +50,21 @@ sensor:
       filters:
         - offset: ${iaq_offset}
         - lambda: "return x + id(iaq_offset_ui).state;"
+        - throttle_average: ${bme_report_interval}
     co2_equivalent:
       name: "CO2 Equivalent"
       device_class: carbon_dioxide
       filters:
         - offset: ${co2_offset}
         - lambda: "return x + id(co2_offset_ui).state;"
+        - throttle_average: ${bme_report_interval}
     breath_voc_equivalent:
       name: "Breath VOC Equivalent"
       device_class: volatile_organic_compounds
       filters:
         - offset: ${voc_offset}
         - lambda: "return x + id(voc_offset_ui).state;"
+        - throttle_average: ${bme_report_interval}
 
 number:
   - platform: template
